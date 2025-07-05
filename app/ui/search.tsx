@@ -9,7 +9,11 @@ export default function Search({ placeholder }: { placeholder: string }) {
   function handleSearch(term: string)
   {
     const params = new URLSearchParams(searchParams);
-    console.log(term);
+    if (term) {
+      params.set('query', term);
+    } else {
+      params.delete('query');
+    }
   }
   return (
     <div className="relative flex flex-1 flex-shrink-0">
